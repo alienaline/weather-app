@@ -4,7 +4,9 @@
         padding: 33px 0 7px 18px
     .weather_cities-list
         margin: 25px 0 0 18px
-        height: 300px
+        height: 270px
+        overflow: hidden
+        overflow-y: scroll
         .cities-list_button
             display: flex
             justify-content: space-between
@@ -25,4 +27,8 @@
                 font-weight: 700
                 display: block
                 color: #2F4F4F
+    .weather_cities-list::-webkit-scrollbar
+        width: 3px
+    .weather_cities-list::-webkit-scrollbar-thumb
+        background-color: rgba(255, 160, 122, 0.8)
             

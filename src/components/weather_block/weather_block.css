@@ -101,6 +101,7 @@
 .weather_block .weather_container .weather_details .weather_city-info .info {
   font-size: 24px;
   padding: 6px 0px;
+  color: #900C3F;
   opacity: 0.9;
 }
 
@@ -141,6 +142,7 @@
 
 .weather_block .weather_container .weather_forecast .weather_forecast-cards .forecast_card .forecast_card-date .date,
 .weather_block .weather_container .weather_forecast .weather_forecast-cards .forecast_card .forecast_card-date .time {
+  color: #900C3F;
   font-size: 19px;
 }
 
@@ -165,7 +167,7 @@
 }
 
 .weather_block .weather_container .weather_forecast .weather_forecast-cards::-webkit-scrollbar-thumb {
-  background-color: rgba(47, 79, 79, 0.5);
+  background-color: rgba(255, 160, 122, 0.8);
 }
 
 .weather_block .weather_container .active-window {

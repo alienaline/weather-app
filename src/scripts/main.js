@@ -32,7 +32,6 @@ async function getForecast(cityName) {
         let response = await fetch(url);
         let data = await response.json();
         
-
         VAR.FORECAST_CARDS.textContent = '';
         data.list.forEach(item => {
             let forecastCard = VAR.FORECAST_TEMPLATE.content.cloneNode(true);

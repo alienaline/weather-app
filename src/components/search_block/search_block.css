@@ -31,7 +31,7 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   width: 100%;
-  color: #696969;
+  color: #2F4F4F;
 }
 
 .weather_search .weather_form .weather_search-button {
@@ -42,7 +42,7 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   background-color: #ffffff;
-  border: 3px solid #696969;
+  border: 3px solid #FFC300;
   border-radius: 50%;
 }
 
@@ -53,7 +53,7 @@
   right: 0;
   width: 12px;
   height: 3px;
-  background-color: #696969;
+  background-color: #FFC300;
   border-radius: 0 7.5px 7.5px 0;
   -webkit-transform-origin: 0 50%;
           transform-origin: 0 50%;
