@@ -1,0 +1,23 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="src/font/font.css")
+        link(rel="stylesheet", href="src/components/base/base.css")
+        link(rel="stylesheet", href="src/components/search_block/search_block.css")
+        link(rel="stylesheet", href="src/components/weather_block/weather_block.css")
+        link(rel="stylesheet", href="src/components/cities_block/cities_block.css")
+        title Weather
+    block content 
+        body
+            main 
+                include src/components/search_block/search_block.pug
+                .content_block 
+                    include src/components/weather_block/weather_block.pug
+                    include src/components/cities_block/cities_block.pug
+            script(type="module", src="src/scripts/view.js") 
+            script(type="module", src="src/scripts/tabs.js") 
+            script(type="module", src="src/scripts/main.js") 
+            script(type="module", src="src/scripts/storage.js") 

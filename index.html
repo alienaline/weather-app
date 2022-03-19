@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/font/font.css">
+    <link rel="stylesheet" href="src/components/base/base.css">
+    <link rel="stylesheet" href="src/components/search_block/search_block.css">
+    <link rel="stylesheet" href="src/components/weather_block/weather_block.css">
+    <link rel="stylesheet" href="src/components/cities_block/cities_block.css">
+    <title>Weather</title>
+  </head>
+  <body>
+    <main> 
+      <div class="weather_search">
+        <form class="weather_form">
+          <input class="weather_input" type="text" placeholder="Enter the city">
+          <button class="weather_search-button" type="submit"></button>
+        </form>
+      </div>
+      <div class="content_block"> 
+        <div class="weather_block"> 
+          <div class="weather_container">
+            <div class="weather_now active-window window" id="now">
+              <p class="weather_temp"> </p>
+              <div class="weather_cloudly"> <img class="weather_cloudly-icon"></div>
+              <div class="weather_city">
+                <h1 class="weather_city-name"> </h1>
+                <button class="weather_like-button" type="button"></button>
+              </div>
+            </div>
+            <div class="weather_details window" id="details">
+              <h1 class="weather_city-name"> </h1>
+              <div class="weather_city-info">
+                <p class="info">Temperature:&nbsp<span class="weather_temp"></span></p>
+                <p class="info">Feels like:&nbsp<span class="weather_feels-like"></span></p>
+                <p class="info">Weather:&nbsp<span class="weather_weather"></span></p>
+                <p class="info">Sunrise:&nbsp<span class="weather_sunrise"></span></p>
+                <p class="info">Sunset:&nbsp<span class="weather_sunset"></span></p>
+              </div>
+            </div>
+            <div class="weather_forecast window" id="forecast">
+              <h1 class="weather_city-name">Name</h1>
+              <div class="weather_forecast-cards"> 
+                <template class="forecast_template">
+                  <div class="forecast_card"> 
+                    <div class="forecast_card-date"> 
+                      <div class="date"> </div>
+                      <div class="time"> </div>
+                    </div>
+                    <div class="forecast_card-weather">
+                      <div class="forecast_card-temp"> 
+                        <div class="temp">Temperature: <span class="weather_temp"></span></div>
+                        <div class="feels_like">Feels like:&nbsp<span class="weather_feels-like"></span></div>
+                      </div><img class="forecast_card-icon">
+                    </div>
+                  </div>
+                </template>
+              </div>
+            </div>
+          </div>
+          <div class="weather_tabs"><a class="tab now active-tab" data-tab="#now">Now</a><a class="tab details" data-tab="#details">Details</a><a class="tab forecast" data-tab="#forecast">Forecast</a></div>
+        </div>
+        <div class="weather_favorite-cities"> 
+          <div class="added-locations"> 
+            <h1>Added locations:</h1>
+          </div>
+          <ul class="weather_cities-list"> 
+            <template id="weather_cities-template">
+              <li class="cities-list_button">
+                <button class="added-city" type="button"> </button>
+                <button class="remove" type="button"> </button>
+              </li>
+            </template>
+          </ul>
+        </div>
+      </div>
+    </main>
+    <script type="module" src="src/scripts/view.js"> </script>
+    <script type="module" src="src/scripts/tabs.js"> </script>
+    <script type="module" src="src/scripts/main.js"> </script>
+    <script type="module" src="src/scripts/storage.js"> </script>
+  </body>
+</html>

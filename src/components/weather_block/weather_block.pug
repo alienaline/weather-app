@@ -1,0 +1,41 @@
+.weather_block 
+    .weather_container
+        .weather_now.active-window.window(id='now')
+            p.weather_temp 
+            .weather_cloudly 
+                img.weather_cloudly-icon
+            .weather_city
+                h1.weather_city-name 
+                button.weather_like-button(type="button")
+        .weather_details.window(id='details')
+            h1.weather_city-name 
+            .weather_city-info
+                p.info Temperature:&nbsp
+                    span.weather_temp
+                p.info Feels like:&nbsp
+                    span.weather_feels-like
+                p.info Weather:&nbsp
+                    span.weather_weather
+                p.info Sunrise:&nbsp
+                    span.weather_sunrise
+                p.info Sunset:&nbsp
+                    span.weather_sunset
+        .weather_forecast.window(id='forecast')
+            h1.weather_city-name Name
+            .weather_forecast-cards 
+                template.forecast_template
+                    .forecast_card 
+                        .forecast_card-date 
+                            .date 
+                            .time 
+                        .forecast_card-weather
+                            .forecast_card-temp 
+                                .temp Temperature: 
+                                    span.weather_temp
+                                .feels_like Feels like:&nbsp
+                                    span.weather_feels-like
+                            img.forecast_card-icon 
+    .weather_tabs
+        a.tab.now.active-tab(data-tab="#now") Now
+        a.tab.details(data-tab="#details") Details
+        a.tab.forecast(data-tab="#forecast") Forecast

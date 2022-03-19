@@ -1,0 +1,60 @@
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local("");
+  src-url: "Roboto-Medium.svg" format("svg");
+  src-url: "Roboto-Medium.ttf" format("truetype");
+  src-url: "Roboto-Medium.woff" format("woff");
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 400;
+  src: local("");
+  src-url: "Roboto-MediumItalic.svg" format("svg");
+  src-url: "Roboto-MediumItalic.ttf" format("truetype");
+  src-url: "Roboto-MediumItalic.woff" format("woff");
+}
+
+*,
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-weight: normal;
+  outline: none;
+  list-style: none;
+  background-color: white;
+  border: none;
+  text-decoration: none;
+  color: #000;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+main {
+  border: 1px solid #000;
+  max-width: 600px;
+  height: 431px;
+  margin: 100px auto;
+}
+
+button {
+  cursor: pointer;
+}
+
+.content_block {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+
+/*# sourceMappingURL=/base.52c8226e.css.map */

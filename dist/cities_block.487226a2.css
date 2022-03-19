@@ -1,0 +1,47 @@
+@charset "UTF-8";
+.weather_favorite-cities .added-locations {
+  border-bottom: 1px solid #000000;
+  padding: 33px 0 7px 18px;
+}
+
+.weather_favorite-cities .weather_cities-list {
+  margin: 25px 0 0 18px;
+}
+
+.weather_favorite-cities .weather_cities-list .cities-list_button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  margin: 0 0 10px 0;
+}
+
+.weather_favorite-cities .weather_cities-list .cities-list_button .added-city {
+  font-size: 24px;
+}
+
+.weather_favorite-cities .weather_cities-list .cities-list_button .remove {
+  cursor: pointer;
+  opacity: 0.15;
+  font-size: 100%;
+  margin: 0 10px 0 0;
+}
+
+.weather_favorite-cities .weather_cities-list .cities-list_button .remove:hover {
+  opacity: 1;
+}
+
+.weather_favorite-cities .weather_cities-list .cities-list_button .remove:after {
+  content: '✕';
+  font-size: 100%;
+  font-weight: 700;
+  display: block;
+  color: black;
+}
+
+
+/*# sourceMappingURL=/cities_block.487226a2.css.map */

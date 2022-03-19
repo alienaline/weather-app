@@ -1,0 +1,37 @@
+.weather_search
+    display: flex
+    justify-content: space-between
+    align-items: center
+    height: 45px
+    border-bottom: 1px solid #2F4F4F
+    padding: 0 16px 0 16px
+    .weather_form
+        display: flex
+        justify-content: space-between
+        align-items: center
+        width: 100%
+        input
+            border: none
+            box-sizing: border-box
+            width: 100%
+            color: #696969
+        .weather_search-button
+            border: none
+            position: relative
+            height: 20px
+            width: 20px
+            box-sizing: border-box
+            background-color: #ffffff
+            border: 3px solid #696969
+            border-radius: 50%
+        .weather_search-button::after
+            content: ""
+            position: absolute
+            bottom: 0
+            right: 0
+            width: 12px
+            height: 3px
+            background-color: #696969
+            border-radius: 0 7.5px 7.5px 0
+            transform-origin: 0 50%
+            transform: translateX(90%) rotate(45deg)

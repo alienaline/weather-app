@@ -1,0 +1,117 @@
+.weather_block
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    position: relative
+    height: 385px
+    .weather_container
+        border-right: 1px solid #2F4F4F
+        height: 100%
+        .weather_now
+            display: none
+            .weather_temp 
+                font-size: 70px
+                margin: 20px 20px 0 20px
+            .weather_cloudly
+                display: flex
+                .weather_cloudly-icon  
+                    margin: auto
+                    height: 175px
+                    opacity: 1
+            .weather_city
+                display: flex
+                justify-content: space-between
+                align-items: center
+                margin: 12px 12px
+                .weather_like-button
+                    position: relative
+                    width: 20px
+                    height: 20px
+                .weather_like-button::before,
+                .weather_like-button::after
+                    position: absolute
+                    content: ""
+                    width: 16px
+                    height: 27px
+                    top: -5px
+                    background-color: #FFA07A
+                    border-radius: 30px 30px 0 0
+                    transform: rotate(-45deg)
+                    transform-origin: 0 100%
+                .weather_like-button::after
+                    right: 20px
+                    transform-origin: 100% 100%
+                    transform: rotate(46deg)
+                .weather_like-button::before
+                    right: 5px
+        .weather_details
+            display: none
+            height: 100%
+            .weather_city-name
+                margin: 36px 17px
+            .weather_city-info
+                margin: 0px 17px
+                .info
+                    font-size: 24px
+                    padding: 6px 0px
+                    opacity: 0.9
+                    span
+                        font-size: 24px
+                        opacity: 0.75
+        .weather_forecast
+            display: none
+            .weather_city-name
+                margin: 36px 17px 0 17px
+            .weather_forecast-cards 
+                height: 270px
+                overflow: hidden
+                overflow-y: scroll
+                .forecast_card 
+                    border: 1px solid #2F4F4F
+                    margin: 9px 17px
+                    padding: 6px 10px
+                    .forecast_card-date
+                        display: flex
+                        justify-content: space-between
+                        margin: 0 0 30px 0
+                        .date,
+                        .time
+                            font-size: 19px
+                    .forecast_card-weather
+                        display: flex
+                        justify-content: space-between
+                        align-items: center
+                        .forecast_card-temp
+                            opacity: 0.8 
+            .weather_forecast-cards::-webkit-scrollbar
+                width: 3px
+            .weather_forecast-cards::-webkit-scrollbar-thumb
+                background-color: rgba(47, 79, 79, 0.5)
+        .active-window
+            display: contents
+    .weather_tabs
+        display: grid
+        grid-template-columns: 1fr 1fr 1fr
+        .tab
+            border: 1px solid #2F4F4F
+            border-right: none
+            border-bottom: none
+            background-color: #ffffff
+            padding: 10px 15px
+            text-align: center
+            cursor: pointer
+        .now
+            border-left: none
+        .forecast
+            border-right: 1px solid #2F4F4F
+        .tab:hover
+            background-color: #2F4F4F
+            color: white 
+        .active-tab
+            background-color: #2F4F4F
+            color: white 
+ 
+.weather_city-name
+    color: #2F4F4F
+    font-size: 30px
+
