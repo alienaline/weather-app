@@ -130,8 +130,8 @@ function getElem(selector) {
 }
 
 var VAR = {
-  WINDOWS: getElem('.weather_container').children,
-  TABS: getElem('.weather_tabs').children,
+  WINDOWS: document.querySelectorAll('.window'),
+  TABS: document.querySelectorAll('.tab'),
   FORM: getElem('.weather_form'),
   INPUT: getElem('.weather_input'),
   CITY: document.querySelectorAll('.weather_city-name'),
@@ -143,7 +143,9 @@ var VAR = {
   SUNSET: getElem('.weather_sunset'),
   ADD_CITY_BUTTON: getElem('.weather_like-button'),
   ADDED_CITIES_LIST: getElem('.weather_cities-list'),
-  ADDED_CITIES_TEMPLATE: getElem('#weather_cities-template')
+  ADDED_CITIES_TEMPLATE: getElem('#weather_cities-template'),
+  FORECAST_CARDS: getElem('.weather_forecast-cards'),
+  FORECAST_TEMPLATE: getElem('.forecast_template')
 };
 var _default = VAR;
 exports.default = _default;
@@ -154,37 +156,40 @@ var _view = _interopRequireDefault(require("./view.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
+var tabs = _view.default.TABS;
+var windows = _view.default.WINDOWS;
+tabs.forEach(function (elem) {
+  elem.addEventListener('click', function () {
+    var currentTab = elem;
+    var tabId = currentTab.getAttribute('data-tab');
+    var currentWindow = document.querySelector(tabId);
+    tabs.forEach(function (elem) {
+      elem.classList.remove('active-tab');
+    });
+    windows.forEach(function (elem) {
+      elem.classList.remove('active-window');
+    });
+    currentTab.classList.add('active-tab');
+    currentWindow.classList.add('active-window');
+  });
+});
+/* 
 function changeTab(event) {
-  var target = event.target;
-
-  if (!target.classList.contains('active-tab')) {
-    var activeTab = document.querySelector('.active-tab');
-    activeTab.classList.remove('active-tab');
-    target.classList.add('active-tab');
-  } else {
-    return false;
-  }
+    let target = event.target;
+    if (!target.classList.contains('active-tab')) {
+        let activeTab = document.querySelector('.active-tab');
+        activeTab.classList.remove('active-tab');
+        target.classList.add('active-tab');
+    } else {
+        return false;
+    }
 }
 
-var _iterator = _createForOfIteratorHelper(_view.default.TABS),
-    _step;
-
-try {
-  for (_iterator.s(); !(_step = _iterator.n()).done;) {
-    var tab = _step.value;
+for (let tab of VAR.TABS) {
     tab.addEventListener('click', changeTab);
-  }
-} catch (err) {
-  _iterator.e(err);
-} finally {
-  _iterator.f();
 }
+
+*/
 },{"./view.js":"src/scripts/view.js"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -213,7 +218,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50134" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49566" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

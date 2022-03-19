@@ -20,7 +20,7 @@ async function getWeather(cityName) {
         VAR.SUNSET.textContent = getTime(data.sys.sunset);
 
     } catch(error) {
-        alert(error);
+        console.log(error);
     }
 }
 
@@ -52,7 +52,7 @@ async function getForecast(cityName) {
         })
         
     } catch(err) {
-        alert(err);
+        console.log(err);
     }
 
 }

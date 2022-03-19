@@ -130,8 +130,8 @@ function getElem(selector) {
 }
 
 var VAR = {
-  WINDOWS: getElem('.weather_container').children,
-  TABS: getElem('.weather_tabs').children,
+  WINDOWS: document.querySelectorAll('.window'),
+  TABS: document.querySelectorAll('.tab'),
   FORM: getElem('.weather_form'),
   INPUT: getElem('.weather_input'),
   CITY: document.querySelectorAll('.weather_city-name'),
@@ -143,7 +143,9 @@ var VAR = {
   SUNSET: getElem('.weather_sunset'),
   ADD_CITY_BUTTON: getElem('.weather_like-button'),
   ADDED_CITIES_LIST: getElem('.weather_cities-list'),
-  ADDED_CITIES_TEMPLATE: getElem('#weather_cities-template')
+  ADDED_CITIES_TEMPLATE: getElem('#weather_cities-template'),
+  FORECAST_CARDS: getElem('.weather_forecast-cards'),
+  FORECAST_TEMPLATE: getElem('.forecast_template')
 };
 var _default = VAR;
 exports.default = _default;
@@ -175,7 +177,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50134" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49566" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

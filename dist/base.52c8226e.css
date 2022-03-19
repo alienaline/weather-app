@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   src: local("");
   src-url: "Roboto-Medium.svg" format("svg");
   src-url: "Roboto-Medium.ttf" format("truetype");
@@ -11,7 +11,7 @@
 @font-face {
   font-family: 'Roboto';
   font-style: italic;
-  font-weight: 400;
+  font-weight: 500;
   src: local("");
   src-url: "Roboto-MediumItalic.svg" format("svg");
   src-url: "Roboto-MediumItalic.ttf" format("truetype");
@@ -31,7 +31,7 @@ body {
   background-color: white;
   border: none;
   text-decoration: none;
-  color: #000;
+  color: #2F4F4F;
 }
 
 h1 {
@@ -39,7 +39,7 @@ h1 {
 }
 
 main {
-  border: 1px solid #000;
+  border: 1px solid #2F4F4F;
   max-width: 600px;
   height: 431px;
   margin: 100px auto;

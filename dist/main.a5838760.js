@@ -130,8 +130,8 @@ function getElem(selector) {
 }
 
 var VAR = {
-  WINDOWS: getElem('.weather_container').children,
-  TABS: getElem('.weather_tabs').children,
+  WINDOWS: document.querySelectorAll('.window'),
+  TABS: document.querySelectorAll('.tab'),
   FORM: getElem('.weather_form'),
   INPUT: getElem('.weather_input'),
   CITY: document.querySelectorAll('.weather_city-name'),
@@ -143,7 +143,9 @@ var VAR = {
   SUNSET: getElem('.weather_sunset'),
   ADD_CITY_BUTTON: getElem('.weather_like-button'),
   ADDED_CITIES_LIST: getElem('.weather_cities-list'),
-  ADDED_CITIES_TEMPLATE: getElem('#weather_cities-template')
+  ADDED_CITIES_TEMPLATE: getElem('#weather_cities-template'),
+  FORECAST_CARDS: getElem('.weather_forecast-cards'),
+  FORECAST_TEMPLATE: getElem('.forecast_template')
 };
 var _default = VAR;
 exports.default = _default;
@@ -230,7 +232,7 @@ function _getWeather() {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            serverUrl = 'http://api.openweathermap.org/data/2.5/weather';
+            serverUrl = 'https://api.openweathermap.org/data/2.5/weather';
             url = "".concat(serverUrl, "?q=").concat(cityName, "&appid=").concat(apiKey, "&units=metric");
             _context.prev = 2;
             _context.next = 5;
@@ -268,7 +270,7 @@ function _getWeather() {
           case 19:
             _context.prev = 19;
             _context.t0 = _context["catch"](2);
-            alert(_context.t0);
+            console.log(_context.t0);
 
           case 22:
           case "end":
@@ -280,13 +282,72 @@ function _getWeather() {
   return _getWeather.apply(this, arguments);
 }
 
-function addFavoriteCity() {
-  var _this = this;
+function getForecast(_x2) {
+  return _getForecast.apply(this, arguments);
+}
 
+function _getForecast() {
+  _getForecast = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(cityName) {
+    var serverUrl, url, response, data;
+    return regeneratorRuntime.wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            serverUrl = 'https://api.openweathermap.org/data/2.5/forecast';
+            url = "".concat(serverUrl, "?q=").concat(cityName, "&appid=").concat(apiKey, "&units=metric");
+            _context2.prev = 2;
+            _context2.next = 5;
+            return fetch(url);
+
+          case 5:
+            response = _context2.sent;
+            _context2.next = 8;
+            return response.json();
+
+          case 8:
+            data = _context2.sent;
+            _view.default.FORECAST_CARDS.textContent = '';
+            data.list.forEach(function (item) {
+              var forecastCard = _view.default.FORECAST_TEMPLATE.content.cloneNode(true);
+
+              var forecastDate = forecastCard.querySelector('.date');
+              var forecastTime = forecastCard.querySelector('.time');
+              var forecastTemp = forecastCard.querySelector('.weather_temp');
+              var forecastFeelsLike = forecastCard.querySelector('.weather_feels-like');
+              var forecastIcon = forecastCard.querySelector('.forecast_card-icon');
+              forecastDate.textContent = new Date(item.dt * 1000).getDate() + ' ' + new Date(item.dt * 1000).toLocaleString('en-US', {
+                month: 'long'
+              });
+              forecastTime.textContent = getTime(item.dt);
+              forecastTemp.textContent = Math.round(item.main.temp) + '°';
+              forecastFeelsLike.textContent = Math.round(item.main.feels_like) + '°';
+              forecastIcon.src = "http://openweathermap.org/img/wn/".concat(item.weather[0].icon, ".png");
+
+              _view.default.FORECAST_CARDS.append(forecastCard);
+            });
+            _context2.next = 16;
+            break;
+
+          case 13:
+            _context2.prev = 13;
+            _context2.t0 = _context2["catch"](2);
+            console.log(_context2.t0);
+
+          case 16:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2, null, [[2, 13]]);
+  }));
+  return _getForecast.apply(this, arguments);
+}
+
+function addFavoriteCity() {
   var city = _view.default.ADDED_CITIES_TEMPLATE.content.cloneNode(true);
 
   var cityName = city.querySelector('.added-city');
-  var removeBtn = city.querySelector('.remove');
+  var removeBtn = city.querySelectorAll('.remove');
   var cityNotAdded = !_view.default.ADDED_CITIES_LIST.textContent.includes(_view.default.CITY[0].textContent);
 
   if (cityNotAdded) {
@@ -294,10 +355,12 @@ function addFavoriteCity() {
     cityName.addEventListener('click', function () {
       getWeather(cityName.textContent);
     });
-    removeBtn.addEventListener('click', function () {
-      _this.closest('.cities-list_button').remove();
+    removeBtn.forEach(function (elem) {
+      return elem.addEventListener('click', function () {
+        elem.closest('.cities-list_button').remove();
+        _storage.default.deleteFromLocalStorage;
+      });
     });
-    removeBtn.addEventListener('click', _storage.default.deleteFromLocalStorage);
 
     _view.default.ADDED_CITIES_LIST.append(city);
   }
@@ -311,7 +374,7 @@ function getTime(ms) {
   return "".concat(hours, ":").concat(minutes);
 }
 
-var apiKey = 'f660a2fb1e4bad108d6160b7f58c555f';
+var apiKey = 'aa29a41587e93e740b35d26547f2127f';
 
 var checkedCity = _storage.default.getFavoriteCities().checked;
 
@@ -336,7 +399,7 @@ try {
       _storage.default.setCheckedCity(addedCity.textContent);
     });
     removeBtn.addEventListener('click', function (event) {
-      console.log(event.target);
+      event.target.parentElement.remove();
     });
     removeBtn.addEventListener('click', _storage.default.deleteFromLocalStorage);
 
@@ -353,7 +416,8 @@ try {
   _iterator.f();
 }
 
-getWeather(checkedCity); // add event listeners for send requests
+getWeather(checkedCity);
+getForecast(checkedCity); // add event listeners for send requests
 
 _view.default.FORM.addEventListener('submit', function () {
   var cityName = _view.default.INPUT.value.trim();
@@ -396,7 +460,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50134" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49566" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

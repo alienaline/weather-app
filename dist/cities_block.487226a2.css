@@ -1,11 +1,12 @@
 @charset "UTF-8";
 .weather_favorite-cities .added-locations {
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid #2F4F4F;
   padding: 33px 0 7px 18px;
 }
 
 .weather_favorite-cities .weather_cities-list {
   margin: 25px 0 0 18px;
+  height: 100px;
 }
 
 .weather_favorite-cities .weather_cities-list .cities-list_button {
@@ -40,7 +41,7 @@
   font-size: 100%;
   font-weight: 700;
   display: block;
-  color: black;
+  color: #2F4F4F;
 }
 
 
