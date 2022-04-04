@@ -34,6 +34,18 @@ body {
   color: #2F4F4F;
 }
 
+html,
+body {
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 h1 {
   font-size: 24px;
 }
@@ -42,7 +54,7 @@ main {
   border: 1px solid #2F4F4F;
   max-width: 600px;
   height: 431px;
-  margin: 100px auto;
+  margin: auto auto;
 }
 
 button {

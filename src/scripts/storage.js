@@ -1,13 +1,13 @@
 import VAR from './view.js';
 
 if (!localStorage.getItem('favoriteCities')) {
-    localStorage.setItem("favoriteCities", JSON.stringify({'checked': 'Izhevsk', 'cities': []}));
+    localStorage.setItem('favoriteCities', JSON.stringify({'checked': 'Izhevsk', 'cities': []}));
 }
 
 
 const storage = {
     getFavoriteCities() {
-        return JSON.parse(localStorage.getItem("favoriteCities"));
+        return JSON.parse(localStorage.getItem('favoriteCities'));
     },
 
     getCheckedCity() {

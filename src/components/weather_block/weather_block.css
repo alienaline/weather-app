@@ -10,7 +10,7 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   position: relative;
-  height: 385px;
+  height: 385.5px;
 }
 
 .weather_block .weather_container {
@@ -49,7 +49,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 12px 12px;
+  margin: 12px;
 }
 
 .weather_block .weather_container .weather_now .weather_city .weather_like-button {

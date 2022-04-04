@@ -1,5 +1,5 @@
 function getElem(selector) {
-    return document.querySelector(selector)
+    return document.querySelector(selector);
 }
 
 const VAR = {
@@ -19,6 +19,6 @@ const VAR = {
     ADDED_CITIES_TEMPLATE: getElem('#weather_cities-template'),
     FORECAST_CARDS: getElem('.weather_forecast-cards'),
     FORECAST_TEMPLATE: getElem('.forecast_template'),
-}
+};
 
 export default VAR;

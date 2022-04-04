@@ -1,7 +1,7 @@
 import VAR from './view.js';
 
-let tabs = VAR.TABS;
-let windows = VAR.WINDOWS;
+const tabs = VAR.TABS;
+const windows = VAR.WINDOWS;
 
 tabs.forEach(elem => {
     elem.addEventListener('click', () => {
@@ -11,16 +11,16 @@ tabs.forEach(elem => {
 
         tabs.forEach(elem => {
             elem.classList.remove('active-tab');
-        })
+        });
 
         windows.forEach(elem => {
             elem.classList.remove('active-window');
-        })
+        });
 
         currentTab.classList.add('active-tab');
         currentWindow.classList.add('active-window');
-    })
-})
+    });
+});
 
 
 

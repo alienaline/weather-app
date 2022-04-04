@@ -1,7 +1,7 @@
 import VAR from './view.js';
 import storage from './storage.js';
 
-//implementation the functions
+// functions
 
 async function getWeather(cityName) {
     const serverUrl = 'https://api.openweathermap.org/data/2.5/weather';
@@ -45,10 +45,10 @@ async function getForecast(cityName) {
             forecastTime.textContent = getTime(item.dt);
             forecastTemp.textContent = Math.round(item.main.temp) + '°';
             forecastFeelsLike.textContent = Math.round(item.main.feels_like) + '°';
-            forecastIcon.src = `http://openweathermap.org/img/wn/${item.weather[0].icon}.png`
+            forecastIcon.src = `http://openweathermap.org/img/wn/${item.weather[0].icon}.png`;
 
             VAR.FORECAST_CARDS.append(forecastCard);
-        })
+        });
         
     } catch(err) {
         console.log(err);
@@ -95,7 +95,6 @@ const checkedCity = storage.getFavoriteCities().checked;
 const favoriteCities = storage.getFavoriteCities().cities;
 for (let city of favoriteCities) {
     let favoriteCity = VAR.ADDED_CITIES_TEMPLATE.content.cloneNode(true);
-    let item = favoriteCity.querySelectorAll('.cities-list_button');
     let addedCity = favoriteCity.querySelector('.added-city');
     let removeBtn = favoriteCity.querySelector('.remove');
 
@@ -114,11 +113,12 @@ for (let city of favoriteCities) {
 }
 
 
-// set default city
+// default city for requests
 
 getWeather(checkedCity);
 getForecast(checkedCity);
-// add event listeners for send requests
+
+// event listeners
 
 VAR.FORM.addEventListener('submit', function() {
     let cityName = VAR.INPUT.value.trim();
